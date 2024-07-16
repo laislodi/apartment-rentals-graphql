@@ -1,47 +1,1 @@
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.3.1'
-    id 'io.spring.dependency-management' version '1.1.5'
-    id 'com.netflix.dgs.codegen' version '6.2.1'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin
-//    id 'spring-boot-maven-plugin' version '3.3.1'
-
-}
-
-group = 'com.apartments'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-graphql
-    implementation 'org.springframework.boot:spring-boot-starter-graphql:3.3.1'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.1'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.1'
-    // https://mvnrepository.com/artifact/org.springframework/spring-webflux
-    implementation 'org.springframework:spring-webflux:6.1.10'
-    // https://mvnrepository.com/artifact/org.springframework/spring-test
-    testImplementation 'org.springframework:spring-test:6.1.10'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin
-    implementation 'org.springframework.boot:spring-boot-maven-plugin:3.3.1'
-}
-
-generateJava {
-    schemaPaths = ["${projectDir}/src/main/resources/graphql-client"]
-    packageName = 'com.apartments.graphql.codegen'
-    generateClient = true
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
-}
+plugins {    id 'java'    id 'org.springframework.boot' version '3.3.1'    id 'io.spring.dependency-management' version '1.1.5'    id 'com.netflix.dgs.codegen' version '6.2.1'    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin//    id 'spring-boot-maven-plugin' version '3.3.1'}group = 'com.apartments'version = '0.0.1-SNAPSHOT'java {    toolchain {        languageVersion = JavaLanguageVersion.of(17)    }}repositories {    mavenCentral()}dependencies {    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-graphql    implementation 'org.springframework.boot:spring-boot-starter-graphql:3.3.1'    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.1'    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.1'    // https://mvnrepository.com/artifact/org.springframework/spring-webflux    implementation 'org.springframework:spring-webflux:6.1.10'    // https://mvnrepository.com/artifact/org.springframework/spring-test    testImplementation 'org.springframework:spring-test:6.1.10'    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin    implementation 'org.springframework.boot:spring-boot-maven-plugin:3.3.1'    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.5'    // https://mvnrepository.com/artifact/org.postgresql/postgresql    implementation 'org.postgresql:postgresql:42.7.1'}generateJava {    schemaPaths = ["${projectDir}/src/main/resources/graphql-client"]    packageName = 'com.apartments.graphql.codegen'    generateClient = true}tasks.named('test') {    useJUnitPlatform()}
