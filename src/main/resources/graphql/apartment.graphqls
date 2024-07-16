@@ -1,0 +1,31 @@
+type Apartment {
+    id: ID!
+    numberOfBedrooms: Int!
+    numberOfBathrooms: Int!
+    area: Float!
+    price: Float!
+    hasParking: Boolean!
+    description: String!
+}
+
+input ApartmentEditInput {
+    numberOfBedrooms: Int
+    numberOfBathrooms: Int
+    area: Float
+    price: Float
+    hasParking: Boolean
+    description: String
+}
+
+type Query {
+    findAll: [Apartment]
+    findOne(id: ID!): Apartment!
+}
+
+type Mutation {
+    create(bedrooms: Int!, bathrooms: Int!, area: Float!,
+        price: Float!, hasParking: Boolean!, description: String!): Apartment
+    update(id: ID, bedrooms: Int!, bathrooms: Int!, area: Float!,
+        price: Float!, hasParking: Boolean!, description: String!): Apartment
+    delete(id: ID): Apartment
+}
