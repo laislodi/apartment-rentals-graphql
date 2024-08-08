@@ -1,5 +1,5 @@
 type Apartment {
-    id: ID!
+    id: String!
     numberOfBedrooms: Int!
     numberOfBathrooms: Int!
     area: Float!
@@ -19,13 +19,13 @@ input ApartmentEditInput {
 
 type Query {
     findAll: [Apartment]
-    findOne(id: ID!): Apartment!
+    findOne(id: String!): Apartment!
 }
 
 type Mutation {
-    create(bedrooms: Int!, bathrooms: Int!, area: Float!,
+    create(bedroom: Int!, bathroom: Int!, area: Float!,
         price: Float!, hasParking: Boolean!, description: String!): Apartment
-    update(id: ID, bedrooms: Int!, bathrooms: Int!, area: Float!,
+    update(id: ID, bedroom: Int!, bathroom: Int!, area: Float!,
         price: Float!, hasParking: Boolean!, description: String!): Apartment
-    delete(id: ID): Apartment
+    delete(id: ID!): Apartment
 }
