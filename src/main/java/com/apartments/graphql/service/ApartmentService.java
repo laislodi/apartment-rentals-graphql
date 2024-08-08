@@ -45,13 +45,13 @@ public class ApartmentService {
         return apartment;
     }
 
-    public ApartmentDTO update(String id, Integer bedrooms, Integer bathrooms, Double area, Boolean hasParking, Float price, String description) {
+    public ApartmentDTO update(String id, Integer bedroom, Integer bathroom, Double area, Boolean hasParking, Float price, String description) {
         ApartmentEntity entity = apartmentRepository.getReferenceById(id);
-        if (Objects.nonNull(bedrooms)) {
-            entity.setNumberOfBedrooms(bedrooms);
+        if (Objects.nonNull(bedroom)) {
+            entity.setNumberOfBedrooms(bedroom);
         }
-        if (Objects.nonNull(bathrooms)) {
-            entity.setNumberOfBathrooms(bathrooms);
+        if (Objects.nonNull(bathroom)) {
+            entity.setNumberOfBathrooms(bathroom);
         }
         if (Objects.nonNull(area)) {
             entity.setArea(area);
@@ -65,6 +65,7 @@ public class ApartmentService {
         if (Objects.nonNull(description)) {
             entity.setDescription(description);
         }
+        apartmentRepository.save(entity);
         return entity.toDTO();
     }
 
